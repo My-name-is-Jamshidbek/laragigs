@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/jamshidbek', function () {
-    return "Jamshidbek";
+Route::get('/posts', function () {
+    return "There are posts";
+});
+
+Route::get('/posts/{id}', function ($id) {
+    return "This is post id " . $id;
+})->where('id', '[0-9]+');
+
+Route::get('/search', function (Request $request) {
+    return $request->name;
 });
