@@ -1,37 +1,27 @@
 <?php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+// Home page
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest listings',
-        'listings' => [
-            [
-                'id' => 0,
-                'title' => 'Listing one',
-                'description' => 'lorem ipsum dolor sit amet lore mauris vel'
-            ],
-            [
-                'id' => 1,
-                'title' => 'Listing two',
-                'description' => 'lorem ipsum dolor sit amet lore mauris vel'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Listing three',
-                'description' => 'lorem ipsum dolor sit amet lore mauris vel'
-            ]
-        ]
+        'listings' => Listing::all(),
+    ]);
+});
+
+// All listings
+Route::get('/listings', function () {
+    return view('listings', [
+        'heading' => 'Latest listings',
+        'listings' => Listing::all(),
+    ]);
+});
+
+// Changed listing
+Route::get('/listings/{id}', function ($id) {
+    return view('listing', [
+        'listing' => Listing::find($id),
     ]);
 });
