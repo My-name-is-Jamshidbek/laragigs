@@ -14,17 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/posts', function () {
-    return "There are posts";
-});
-
-Route::get('/posts/{id}', function ($id) {
-    return "This is post id " . $id;
-})->where('id', '[0-9]+');
-
-Route::get('/search', function (Request $request) {
-    return $request->name;
+    return view('listings', [
+        'heading' => 'Latest listings',
+        'listings' => [
+            [
+                'id' => 0,
+                'title' => 'Listing one',
+                'description' => 'lorem ipsum dolor sit amet lore mauris vel'
+            ],
+            [
+                'id' => 1,
+                'title' => 'Listing two',
+                'description' => 'lorem ipsum dolor sit amet lore mauris vel'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Listing three',
+                'description' => 'lorem ipsum dolor sit amet lore mauris vel'
+            ]
+        ]
+    ]);
 });
