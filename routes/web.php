@@ -2,24 +2,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use App\Http\Controllers\ListingController;
 
 // Home page
-Route::get('/', function () {
-    return view('listings', [
-        'listings' => Listing::all(),
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 // All listings
-Route::get('/listings', function () {
-    return view('listings', [
-        'listings' => Listing::all(),
-    ]);
-});
+Route::get('/listings', [ListingController::class, 'index']);
 
-// Changed listing
-Route::get('/listings/{listing}', function (Listing $listing) {
-    return view('listing', [
-        'listing' => $listing,
-    ]);
-});
+// Single listing
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
