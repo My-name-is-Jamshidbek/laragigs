@@ -14,19 +14,22 @@ Route::get('/', [ListingController::class, 'index']);
 Route::get('/listings', [ListingController::class, 'index']);
 
 // Create listing
-Route::get('/listings/create', [ListingController::class, 'showCreate']);
+Route::get('/listings/create', [ListingController::class, 'showCreate'])->middleware('auth');
 
 // Store listing data
 Route::post('/listings', [ListingController::class, 'store']);
 
+// Manage listings
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
 // Edit listing data
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 
 // Update listing data
-Route::put('/listings/{listing}', [ListingController::class, 'update']);
+Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
 
 // Delete listing data
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
 // Single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
@@ -34,10 +37,16 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 // USER CONTROLLERS
 
 // Show Register/Create Form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 // Create new user
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/users', [UserController::class, 'store'])->middleware('guest');
+
+// Show login form
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 // Log user out
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/authenticate', [UserController::class, 'authenticate'])->middleware('guest');
+
+// Log user out
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
