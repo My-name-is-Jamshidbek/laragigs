@@ -1,25 +1,12 @@
 # LARAGIGS
 
-![Project Logo/Thumbnail](public/images/acme.png)
+![Project Logo/Thumbnail](public/images/logo.png)
 
-Brief description of your Laravel project.
-
-## Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Tutorial Sections](#tutorial-sections)
-- [Key Features](#key-features)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+Welcome to LaraGigs, your go-to platform for finding exciting job opportunities in the Laravel ecosystem! LaraGigs is a specialized job searcher website tailored for Laravel developers, enthusiasts, and professionals. Whether you're a seasoned developer looking for your next big challenge or a newcomer eager to dive into the Laravel community, LaraGigs has you covered.
 
 ## About
 
-Welcome to the [Project Name] repository! This Laravel project [brief description]. It is designed to [mention any special purpose or uniqueness].
+LaraGigs is a dedicated hub for Laravel enthusiasts seeking exciting career opportunities and community engagement. This Laravel project is engineered to streamline your job-search experience while fostering a collaborative environment within the Laravel community.
 
 ## Getting Started
 
@@ -31,15 +18,14 @@ Make sure you have the following installed:
 
 - PHP (>=7.x)
 - Composer
-- [Any other prerequisites...]
-
+- 
 ### Installation
 
 Clone the repository and install dependencies:
 
 ```bash
-git clone [repository_url]
-cd [project_directory]
+git clone https://github.com/My-name-is-Jamshidbek/laragigs
+cd laragigs
 composer install
 cp .env.example .env
 php artisan key:generate
